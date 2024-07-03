@@ -59,4 +59,4 @@ Visit http://localhost:3000 to view the application.
 **Styling:** Bootstrap 5 for responsive design and basic styling, with additional custom CSS for specific components.
 
 ## Additional Information
-Deployment: you can see live demo from this link https://vercel.reactecome.com
+Deployment: you can see live demo from this link https://lmons.github.io/react-mini-ecommerce/

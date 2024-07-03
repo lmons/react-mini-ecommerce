@@ -8,7 +8,7 @@ import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-mini-ecommerce">
       <CartProvider>
         <div className="App">
           <Navbar />
