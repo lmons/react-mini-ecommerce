@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from '../context/CartContext';
 import { fetchProducts } from '../services/apiService';
 
@@ -36,9 +38,12 @@ function ProductList() {
                   <h5 className="card-title">{product.title}</h5>
                   <p className="card-text">${product.price}</p>
                 </div>
+                <div className="mt-auto d-flex justify-content-between">
+                <Link to={`/products/${product.id}`} className="btn btn-secondary me-2">View Details</Link>
                 <button className="btn btn-primary mt-auto" onClick={() => addToCart(product)}>
-                  Add to Cart
+                  <FaShoppingCart className="me-1" /> Add to Cart
                 </button>
+                </div>
               </div>
             </div>
           </div>

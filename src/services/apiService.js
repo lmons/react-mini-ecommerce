@@ -11,3 +11,11 @@ export const fetchProducts = () => {
       throw error;
     });
 };
+export const fetchProductById = (id) => {
+  return axios.get(`${BASE_URL}/products/${id}`)
+    .then(response => response.data)
+    .catch(error => {
+      console.error('Error fetching product details:', error);
+      throw error;
+    });
+}
