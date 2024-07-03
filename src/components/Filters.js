@@ -9,10 +9,15 @@ const Filters = ({ categories, onFilterChange }) => {
     const filters = {
       searchTerm,
       categoryFilter,
-      priceFilter
+      priceFilter: parseFloat(priceFilter)
     };
     onFilterChange(filters);
   }, [searchTerm, categoryFilter, priceFilter, onFilterChange]);
+
+  const handleCategoryChange = (event) => {
+    const selectedCategory = event.target.value;
+    setCategoryFilter(selectedCategory);
+  };
 
   return (
     <div className="row mb-3">
@@ -29,7 +34,7 @@ const Filters = ({ categories, onFilterChange }) => {
         <select
           className="form-select"
           value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
+          onChange={handleCategoryChange}
         >
           <option value="">All Categories</option>
           {categories.map((category, index) => (

@@ -15,7 +15,7 @@ function ProductList() {
     fetchProducts()
       .then(products => {
         setProducts(products);
-        setFilteredProducts(products);
+        setFilteredProducts(products); 
       })
       .catch(error => {
         console.error('Error fetching products:', error);
@@ -54,7 +54,9 @@ function ProductList() {
   return (
     <div className="container">
       <h2 className="my-4">Product List</h2>
-      <Filters categories={categories} onFilterChange={handleFilterChange} />
+
+      <Filters categories={categories} onFilterChange={handleFilterChange} onCategoryChange={handleCategoryChange} />
+
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {filteredProducts.map((product) => (
           <div key={product.id} className="col">
