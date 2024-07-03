@@ -17,28 +17,33 @@ function ProductList() {
   }, []);
 
   return (
-    <div>
-      <h2>Product List</h2>
-      <ul className="list-group">
+    <div className="container">
+      <h2 className="my-4">Product List</h2>
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {products.map((product) => (
-          <li key={product.id} className="list-group-item">
-            <div className="row align-items-center">
-              <div className="col-auto">
-                <img src={product.image} alt={product.title} style={{ maxWidth: '100px' }} />
+          <div key={product.id} className="col">
+            <div className="card h-100 d-flex flex-column">
+              <div style={{ minHeight: '300px', maxHeight: '200px', overflow: 'hidden' }}>
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="card-img-top"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </div>
-              <div className="col">
-                <h4>{product.title}</h4>
-                <p>${product.price}</p>
-              </div>
-              <div className="col-auto">
-                <button className="btn btn-primary" onClick={() => addToCart(product)}>
+              <div className="card-body d-flex flex-column justify-content-between">
+                <div>
+                  <h5 className="card-title">{product.title}</h5>
+                  <p className="card-text">${product.price}</p>
+                </div>
+                <button className="btn btn-primary mt-auto" onClick={() => addToCart(product)}>
                   Add to Cart
                 </button>
               </div>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
